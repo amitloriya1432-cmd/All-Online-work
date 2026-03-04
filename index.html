@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSC MPOnline PAN Card Agency</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{background:#f4f6f9;}
+
+.header{
+background:linear-gradient(90deg,#004aad,#00c6ff);
+color:white;
+padding:25px 0;
+text-align:center;
+}
+
+.services,.contact,.apply-section{
+padding:40px 20px;
+text-align:center;
+}
+
+.service-box{
+background:white;
+padding:20px;
+margin:10px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+display:inline-block;
+width:260px;
+}
+
+form{
+background:white;
+padding:25px;
+max-width:400px;
+margin:auto;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+form input, form select, form textarea{
+width:100%;
+padding:10px;
+margin:8px 0;
+border-radius:6px;
+border:1px solid #ccc;
+}
+
+form button{
+background:#004aad;
+color:white;
+padding:10px;
+border:none;
+border-radius:25px;
+width:100%;
+font-weight:bold;
+cursor:pointer;
+}
+
+.upi-box{
+margin-top:20px;
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 4px 10px rgba(0,0,0,0.1);
+display:inline-block;
+}
+
+.whatsapp-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+text-align:center;
+}
+
+footer{
+background:#004aad;
+color:white;
+text-align:center;
+padding:15px;
+margin-top:30px;
+}
+</style>
+</head>
+
+<body>
+
+<header class="header">
+<h1>CSC MPOnline PAN Card Agency</h1>
+<p>Owner: Amit Kumar</p>
+<p>Registration No: K20231203608083</p>
+</header>
+
+<section class="services">
+<h2>Our Services</h2>
+
+<div class="service-box">
+<h3>New PAN Card</h3>
+</div>
+
+<div class="service-box">
+<h3>PAN Correction</h3>
+</div>
+
+<div class="service-box">
+<h3>PAN Reprint</h3>
+</div>
+
+</section>
+
+<!-- UPI PAYMENT SECTION -->
+<section class="contact">
+<h2>Pay Service Charge ₹120</h2>
+
+<div class="upi-box">
+<p><strong>UPI ID:</strong> yourupi@okaxis</p>
+<p>Payment karne ke baad Transaction ID form me dale</p>
+</div>
+
+</section>
+
+<!-- ONLINE APPLY FORM -->
+<section class="apply-section">
+<h2>Online PAN Apply Form</h2>
+
+<form id="panForm">
+<input type="text" name="name" placeholder="Full Name" required>
+<input type="tel" name="mobile" placeholder="Mobile Number" required>
+<input type="text" name="aadhar" placeholder="Aadhar Number" required>
+
+<select name="panType">
+<option value="New PAN">New PAN</option>
+<option value="Correction">Correction</option>
+<option value="Reprint">Reprint</option>
+</select>
+
+<textarea name="address" placeholder="Full Address"></textarea>
+
+<input type="text" name="payment" placeholder="UPI Transaction ID" required>
+
+<button type="submit">Submit Application</button>
+</form>
+
+</section>
+
+<footer>
+© 2026 CSC MPOnline PAN Card Agency | All Rights Reserved
+</footer>
+
+<a href="https://wa.me/916265437626" target="_blank" class="whatsapp-btn">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+document.getElementById("panForm").addEventListener("submit", function(e){
+e.preventDefault();
+
+var formData = new FormData(this);
+var data = {};
+formData.forEach((value, key) => data[key] = value);
+
+var message = `New PAN Application:
+Name: ${data.name}
+Mobile: ${data.mobile}
+Aadhar: ${data.aadhar}
+Type: ${data.panType}
+Address: ${data.address}
+Payment ID: ${data.payment}`;
+
+window.open(`https://wa.me/916265437626?text=${encodeURIComponent(message)}`);
+
+alert("Application Submitted Successfully!");
+});
+</script>
+
+</body>
+</html>
