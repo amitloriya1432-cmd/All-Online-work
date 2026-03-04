@@ -1,107 +1,95 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Amit Online Services Center</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {font-family: Arial; background:#f4f4f4; margin:0; padding:0;}
-.header {background:#0d6efd; color:white; text-align:center; padding:20px;}
-.section {padding:20px;}
-.service-box {background:white; padding:15px; margin:10px 0; border-radius:8px; box-shadow:0 0 5px gray;}
-button {background:#25D366; color:white; padding:10px 15px; border:none; border-radius:5px; cursor:pointer;}
-button:hover {background:#1ebe5d;}
-.footer {background:#222; color:white; text-align:center; padding:15px;}
-.upi {background:#fff3cd; padding:10px; margin-top:15px; border-radius:5px;}
+body{font-family:Arial;margin:0;background:#f2f2f2}
+header{background:#0d6efd;color:white;padding:20px;text-align:center}
+.badge{background:white;color:#0d6efd;padding:5px 10px;border-radius:20px;font-size:14px;margin:5px;display:inline-block}
+.section{padding:20px}
+.card{background:white;padding:15px;margin:10px 0;border-radius:10px;box-shadow:0 0 8px rgba(0,0,0,0.1)}
+button{background:#25D366;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer}
+button:hover{background:#1ebe5d}
+form{background:white;padding:15px;border-radius:10px;margin-top:20px;display:none}
+input,select,textarea{width:100%;padding:8px;margin:5px 0}
+.upi{background:#fff3cd;padding:10px;border-radius:8px;margin-top:15px}
+footer{background:#222;color:white;text-align:center;padding:15px;margin-top:20px}
 </style>
+
+<script>
+function openForm(service){
+document.getElementById("serviceName").value = service;
+document.getElementById("myForm").style.display="block";
+window.scrollTo(0,document.body.scrollHeight);
+}
+
+function sendWhatsApp(){
+var name=document.getElementById("name").value;
+var mobile=document.getElementById("mobile").value;
+var service=document.getElementById("serviceName").value;
+var address=document.getElementById("address").value;
+var message="New Application:%0AName: "+name+"%0AMobile: "+mobile+"%0AService: "+service+"%0AAddress: "+address;
+window.open("https://wa.me/916265437626?text="+message,"_blank");
+}
+</script>
 </head>
+
 <body>
 
-<div class="header">
+<header>
 <h2>Amit Online Services Center</h2>
-<p>Owner: Amit Kumar</p>
-<p>Mobile: 6265437626</p>
-<p>Email: amitloriya1432@gmail.com</p>
-</div>
+<p>Owner: Amit Kumar | Mobile: 6265437626</p>
+<div class="badge">MP Online ID: K20231203608083</div>
+<div class="badge">Vakrangee Agent ID: MP1703030</div>
+</header>
 
 <div class="section">
 
-<h3>Government Certificate Services</h3>
+<h3>PAN Card Services</h3>
+<div class="card">New PAN Card <button onclick="openForm('New PAN Card')">Apply Now</button></div>
+<div class="card">PAN Correction <button onclick="openForm('PAN Correction')">Apply Now</button></div>
+<div class="card">e-PAN Download <button onclick="openForm('e-PAN Download')">Apply Now</button></div>
 
-<div class="service-box">Income Certificate<br>
-<a href="https://wa.me/916265437626?text=I want to apply for Income Certificate"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Caste Certificate<br>
-<a href="https://wa.me/916265437626?text=I want to apply for Caste Certificate"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Domicile Certificate<br>
-<a href="https://wa.me/916265437626?text=I want to apply for Domicile Certificate"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Birth Certificate<br>
-<a href="https://wa.me/916265437626?text=I want to apply for Birth Certificate"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Death Certificate<br>
-<a href="https://wa.me/916265437626?text=I want to apply for Death Certificate"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Scholarship Form<br>
-<a href="https://wa.me/916265437626?text=I want to apply for Scholarship Form"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Exam Form Filling<br>
-<a href="https://wa.me/916265437626?text=I want to apply for Exam Form"><button>Apply Now</button></a>
-</div>
+<h3>Aadhaar Services</h3>
+<div class="card">Mobile Number Update <button onclick="openForm('Aadhaar Mobile Update')">Apply Now</button></div>
+<div class="card">Name / DOB Correction <button onclick="openForm('Aadhaar Correction')">Apply Now</button></div>
 
 <h3>Voter Card Services</h3>
+<div class="card">New Voter Card <button onclick="openForm('New Voter Card')">Apply Now</button></div>
+<div class="card">Voter Correction <button onclick="openForm('Voter Correction')">Apply Now</button></div>
 
-<div class="service-box">New Voter Card<br>
-<a href="https://wa.me/916265437626?text=I want to apply for New Voter Card"><button>Apply Now</button></a>
-</div>
+<h3>MP Online Services</h3>
+<div class="card">Income Certificate <button onclick="openForm('Income Certificate')">Apply Now</button></div>
+<div class="card">Caste Certificate <button onclick="openForm('Caste Certificate')">Apply Now</button></div>
+<div class="card">Domicile Certificate <button onclick="openForm('Domicile Certificate')">Apply Now</button></div>
+<div class="card">Birth / Death Certificate <button onclick="openForm('Birth/Death Certificate')">Apply Now</button></div>
 
-<div class="service-box">Voter Card Correction<br>
-<a href="https://wa.me/916265437626?text=I want Voter Card Correction"><button>Apply Now</button></a>
-</div>
+<h3>EPFO & eShram</h3>
+<div class="card">PF Withdrawal / Balance <button onclick="openForm('EPFO Service')">Apply Now</button></div>
+<div class="card">New eShram Card <button onclick="openForm('eShram Service')">Apply Now</button></div>
 
-<div class="service-box">Mobile Number Link Voter Card<br>
-<a href="https://wa.me/916265437626?text=I want to link mobile number with Voter Card"><button>Apply Now</button></a>
-</div>
-
-<h3>PAN & Aadhaar Services</h3>
-
-<div class="service-box">Find PAN Number<br>
-<a href="https://wa.me/916265437626?text=I want to find my PAN number"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Find Aadhaar Number<br>
-<a href="https://wa.me/916265437626?text=I want to find my Aadhaar number"><button>Apply Now</button></a>
-</div>
-
-<h3>Banking & Other Services</h3>
-
-<div class="service-box">All Banking Services (Vakrangee ID: MP1703030)<br>
-<a href="https://wa.me/916265437626?text=I want Banking Services"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Printing (Color & Black/White)<br>
-<a href="https://wa.me/916265437626?text=I want Printing Service"><button>Apply Now</button></a>
-</div>
-
-<div class="service-box">Passport Size Photo<br>
-<a href="https://wa.me/916265437626?text=I want Passport Size Photo"><button>Apply Now</button></a>
-</div>
+<h3>Banking Services</h3>
+<div class="card">Money Transfer / AEPS / Banking <button onclick="openForm('Banking Service')">Apply Now</button></div>
 
 <div class="upi">
 <b>UPI Payment ID:</b> pinkuloriya145851@ybl
 </div>
 
+<form id="myForm">
+<h3>Application Form</h3>
+<input type="text" id="serviceName" readonly>
+<input type="text" id="name" placeholder="Your Name" required>
+<input type="number" id="mobile" placeholder="Mobile Number" required>
+<textarea id="address" placeholder="Address"></textarea>
+<button type="button" onclick="sendWhatsApp()">Submit</button>
+</form>
+
 </div>
 
-<div class="footer">
+<footer>
 © 2026 Amit Online Services Center | All Rights Reserved
-</div>
+</footer>
 
 </body>
 </html>
