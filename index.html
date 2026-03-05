@@ -1,95 +1,131 @@
 <!DOCTYPE html>
-<html>
+<html lang="hi">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amit Online Services Center</title>
-<style>
-body{font-family:Arial;margin:0;background:#f2f2f2}
-header{background:#0d6efd;color:white;padding:20px;text-align:center}
-.badge{background:white;color:#0d6efd;padding:5px 10px;border-radius:20px;font-size:14px;margin:5px;display:inline-block}
-.section{padding:20px}
-.card{background:white;padding:15px;margin:10px 0;border-radius:10px;box-shadow:0 0 8px rgba(0,0,0,0.1)}
-button{background:#25D366;color:white;border:none;padding:8px 15px;border-radius:5px;cursor:pointer}
-button:hover{background:#1ebe5d}
-form{background:white;padding:15px;border-radius:10px;margin-top:20px;display:none}
-input,select,textarea{width:100%;padding:8px;margin:5px 0}
-.upi{background:#fff3cd;padding:10px;border-radius:8px;margin-top:15px}
-footer{background:#222;color:white;text-align:center;padding:15px;margin-top:20px}
-</style>
-
-<script>
-function openForm(service){
-document.getElementById("serviceName").value = service;
-document.getElementById("myForm").style.display="block";
-window.scrollTo(0,document.body.scrollHeight);
-}
-
-function sendWhatsApp(){
-var name=document.getElementById("name").value;
-var mobile=document.getElementById("mobile").value;
-var service=document.getElementById("serviceName").value;
-var address=document.getElementById("address").value;
-var message="New Application:%0AName: "+name+"%0AMobile: "+mobile+"%0AService: "+service+"%0AAddress: "+address;
-window.open("https://wa.me/916265437626?text="+message,"_blank");
-}
-</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AkprintHub - Online Service Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .service-card { transition: all 0.3s; cursor: pointer; border: 1px solid #e2e8f0; }
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); border-color: #3b82f6; }
+        .header-bg { background: linear-gradient(90deg, #1e3a8a 0%, #3b82f6 100%); }
+    </style>
 </head>
+<body class="bg-gray-50">
 
-<body>
+    <header class="header-bg text-white p-4 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold italic">AkprintHub <span class="text-sm font-normal">by TechnicalMehta</span></h1>
+            <div class="hidden md:block">
+                <input type="text" placeholder="Search services..." class="px-4 py-2 rounded-full text-black w-80 outline-none">
+            </div>
+            <div class="flex gap-4">
+                <button class="bg-white text-blue-700 px-4 py-1 rounded font-bold">Login</button>
+            </div>
+        </div>
+    </header>
 
-<header>
-<h2>Amit Online Services Center</h2>
-<p>Owner: Amit Kumar | Mobile: 6265437626</p>
-<div class="badge">MP Online ID: K20231203608083</div>
-<div class="badge">Vakrangee Agent ID: MP1703030</div>
-</header>
+    <main class="container mx-auto px-4 py-8">
+        
+        <h2 class="text-xl font-bold border-l-4 border-blue-600 pl-3 mb-6">Essential & Services</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-10">
+            <div onclick="openForm('PAN Card')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-id-card text-3xl text-blue-500 mb-2"></i>
+                <p class="text-sm font-semibold">PAN Card Work</p>
+                <span class="text-[10px] bg-green-100 text-green-600 px-2 rounded-full">NEW</span>
+            </div>
+            <div onclick="openForm('Aadhar PVC')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-address-card text-3xl text-orange-500 mb-2"></i>
+                <p class="text-sm font-semibold">Aadhar PVC</p>
+            </div>
+            <div onclick="openForm('EPFO Work')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-university text-3xl text-purple-500 mb-2"></i>
+                <p class="text-sm font-semibold">EPFO All Work</p>
+            </div>
+            <div onclick="openForm('Samagra ID')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-users text-3xl text-red-500 mb-2"></i>
+                <p class="text-sm font-semibold">Samagra ID</p>
+            </div>
+            <div onclick="openForm('Ayushman Card')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-heartbeat text-3xl text-green-500 mb-2"></i>
+                <p class="text-sm font-semibold">Ayushman Card</p>
+            </div>
+            <div onclick="openForm('MSME Registration')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-briefcase text-3xl text-gray-700 mb-2"></i>
+                <p class="text-sm font-semibold">MSME Reg.</p>
+            </div>
+        </div>
 
-<div class="section">
+        <h2 class="text-xl font-bold border-l-4 border-red-600 pl-3 mb-6">Portal Service (MP Online/CSC)</h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+            <div onclick="openForm('MP e-District')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-gavel text-3xl text-yellow-600 mb-2"></i>
+                <p class="text-sm font-semibold">MP e-District</p>
+            </div>
+            <div onclick="openForm('Bhoolekh')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-map-marked-alt text-3xl text-green-700 mb-2"></i>
+                <p class="text-sm font-semibold">Bhoolekh</p>
+            </div>
+            <div onclick="openForm('e-Shram Card')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-hard-hat text-3xl text-blue-800 mb-2"></i>
+                <p class="text-sm font-semibold">e-Shram Card</p>
+            </div>
+            <div onclick="openForm('Voter ID')" class="service-card bg-white p-4 rounded-xl text-center">
+                <i class="fas fa-vote-yea text-3xl text-blue-400 mb-2"></i>
+                <p class="text-sm font-semibold">Voter ID Work</p>
+            </div>
+        </div>
+    </main>
 
-<h3>PAN Card Services</h3>
-<div class="card">New PAN Card <button onclick="openForm('New PAN Card')">Apply Now</button></div>
-<div class="card">PAN Correction <button onclick="openForm('PAN Correction')">Apply Now</button></div>
-<div class="card">e-PAN Download <button onclick="openForm('e-PAN Download')">Apply Now</button></div>
+    <div id="serviceModal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex items-center justify-center p-4 z-[100]">
+        <div class="bg-white rounded-2xl w-full max-w-md p-6 relative">
+            <button onclick="closeForm()" class="absolute top-4 right-4 text-2xl">&times;</button>
+            <h3 id="modalTitle" class="text-xl font-bold mb-4 text-blue-700">Apply for Service</h3>
+            
+            <form id="applyForm" class="space-y-4">
+                <input type="hidden" id="serviceName">
+                <input type="text" id="custName" placeholder="Apna Naam Likhe" class="w-full border p-2 rounded" required>
+                <input type="tel" id="custPhone" placeholder="WhatsApp Number" class="w-full border p-2 rounded" required>
+                <textarea id="custDetails" placeholder="Kaam ki jaankari (Aadhar No. etc)" class="w-full border p-2 rounded"></textarea>
+                
+                <div class="bg-gray-100 p-4 rounded text-center">
+                    <p class="text-xs mb-2 font-bold text-red-600">Scan & Pay to Process Application</p>
+                    <img src="https://i.ibb.co/Y7BqL7n/image.png" alt="PhonePe QR" class="w-32 mx-auto mb-2">
+                    <p class="font-bold">Amit Kumar</p>
+                </div>
 
-<h3>Aadhaar Services</h3>
-<div class="card">Mobile Number Update <button onclick="openForm('Aadhaar Mobile Update')">Apply Now</button></div>
-<div class="card">Name / DOB Correction <button onclick="openForm('Aadhaar Correction')">Apply Now</button></div>
+                <button type="button" onclick="sendToWhatsApp()" class="w-full bg-green-600 text-white font-bold py-3 rounded-lg hover:bg-green-700">
+                    <i class="fab fa-whatsapp mr-2"></i> Submit via WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
 
-<h3>Voter Card Services</h3>
-<div class="card">New Voter Card <button onclick="openForm('New Voter Card')">Apply Now</button></div>
-<div class="card">Voter Correction <button onclick="openForm('Voter Correction')">Apply Now</button></div>
+    <script>
+        function openForm(service) {
+            document.getElementById('serviceName').value = service;
+            document.getElementById('modalTitle').innerText = "Apply for: " + service;
+            document.getElementById('serviceModal').classList.remove('hidden');
+        }
 
-<h3>MP Online Services</h3>
-<div class="card">Income Certificate <button onclick="openForm('Income Certificate')">Apply Now</button></div>
-<div class="card">Caste Certificate <button onclick="openForm('Caste Certificate')">Apply Now</button></div>
-<div class="card">Domicile Certificate <button onclick="openForm('Domicile Certificate')">Apply Now</button></div>
-<div class="card">Birth / Death Certificate <button onclick="openForm('Birth/Death Certificate')">Apply Now</button></div>
+        function closeForm() {
+            document.getElementById('serviceModal').classList.add('hidden');
+        }
 
-<h3>EPFO & eShram</h3>
-<div class="card">PF Withdrawal / Balance <button onclick="openForm('EPFO Service')">Apply Now</button></div>
-<div class="card">New eShram Card <button onclick="openForm('eShram Service')">Apply Now</button></div>
+        function sendToWhatsApp() {
+            const service = document.getElementById('serviceName').value;
+            const name = document.getElementById('custName').value;
+            const phone = document.getElementById('custPhone').value;
+            const details = document.getElementById('custDetails').value;
+            
+            if(!name || !phone) { alert("Please fill details"); return; }
 
-<h3>Banking Services</h3>
-<div class="card">Money Transfer / AEPS / Banking <button onclick="openForm('Banking Service')">Apply Now</button></div>
-
-<div class="upi">
-<b>UPI Payment ID:</b> pinkuloriya145851@ybl
-</div>
-
-<form id="myForm">
-<h3>Application Form</h3>
-<input type="text" id="serviceName" readonly>
-<input type="text" id="name" placeholder="Your Name" required>
-<input type="number" id="mobile" placeholder="Mobile Number" required>
-<textarea id="address" placeholder="Address"></textarea>
-<button type="button" onclick="sendWhatsApp()">Submit</button>
-</form>
-
-</div>
-
-<footer>
-© 2026 Amit Online Services Center | All Rights Reserved
-</footer>
-
+            const myNumber = "919000000000"; // YAHAN APNA WHATSAPP NUMBER DAALEIN
+            const message = `*New Order: AkprintHub*%0A%0A*Service:* ${service}%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Details:* ${details}%0A%0A_Payment Screenshot niche attach karein._`;
+            
+            window.open(`https://wa.me/${myNumber}?text=${message}`, '_blank');
+        }
+    </script>
 </body>
 </html>
